@@ -20,7 +20,6 @@
 		function getUsers () {
 			groupSvc.getUsers().then(function() {
 				vm.usersByCities = groupSvc.getResult();
-				console.log(vm.usersByCities);
 			})
 		}
 

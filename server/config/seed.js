@@ -88,6 +88,9 @@ function addPosts () {
       Post.create({
         body : 'Development Tools',
         user : user
+      } , {
+        body : 'Second One',
+        user : user
       });
     });
   });  

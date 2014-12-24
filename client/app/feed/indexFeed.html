@@ -2,38 +2,42 @@
 	<!-- Add post -->
 	<div class="panel panel-default fb-panel">
 		<div class="panel-body no-padding">
-			<textarea class="form-control fb-textarea" rows="3" placeholder="What's on your mind?"></textarea>
+			<textarea class="form-control fb-textarea" rows="3" placeholder="What's on your mind?" ng-model="vm.newPost.body"></textarea>
 		</div>
 		<div class="panel-footer">
-			<a class="btn btn-xs btn-primary"> POST </a>
+			<a class="btn btn-xs btn-primary" ng-click="vm.create()"> POST </a>
 		</div>
 	</div>
 
 	<!-- Index posts -->
-	<div class="panel panel-default fb-panel">
-		<div class="panel-head">
-			<img src="assets/images/avatar1.jpg" class="img-circle">
-			<div class="who-when">
-				<a href="#"> Name </a>
-				<p> 4 min ago </p>
+	<div class="panel panel-default fb-panel" ng-repeat="post in vm.posts | orderBy: '-created'">
+		<!-- Show post -->
+		<span ng-show="!edit">
+			<div class="panel-head">
+				<img ng-src="{{post.user.picture ? 'assets/images/' + post.user.picture : 'assets/images/' + vm.currentUser.picture}}" class="img-circle">
+				<div class="who-when">
+					<a ng-if="post.user.name" ui-sref="profile({ id: post.user._id })"> {{post.user.name}} </a>
+					<a ng-if="!post.user.name" ui-sref="profile({ id: 'me' })"> {{vm.currentUser.name}} </a>
+					<p> {{post.created | date:'medium'}} </p>
+				</div>
+				<span ng-show="vm.currentUser._id==post.user._id || !post.user._id" ng-click="edit=true" class="glyphicon glyphicon-edit edit-post-icon" aria-hidden="true"></span>
 			</div>
-			<span class="glyphicon glyphicon-edit edit-post-icon" aria-hidden="true"></span>
-		</div>
-		<div class="panel-body">
-			What's on your mind?
-		</div>
-	</div>
+			<div class="panel-body">
+				{{post.body}}
+			</div>
+		</span>
 
-	<!-- Edit posts -->
-	<div class="panel panel-default fb-panel">
-		<div class="panel-body no-padding">
-			<textarea class="form-control fb-textarea" rows="3">What's on your mind?</textarea>
-		</div>
-		<div class="panel-footer">
-			<a class="btn btn-xs btn-primary"> SAVE </a>
-			<a class="btn btn-xs btn-danger"> DELETE </a>
-			<a class="btn btn-xs btn-default"> CANCEL </a>
-		</div>
+		<!-- edit post -->
+		<span ng-show="edit">
+			<div class="panel-body no-padding">
+				<textarea class="form-control fb-textarea" rows="3" ng-init="editPost.body=post.body; editPost._id=post._id" ng-model="editPost.body"></textarea>
+			</div>
+			<div class="panel-footer">
+				<a class="btn btn-xs btn-primary" ng-click="vm.update(editPost); edit=false;"> SAVE </a>
+				<a class="btn btn-xs btn-danger" ng-click="vm.remove(post)"> DELETE </a>
+				<a class="btn btn-xs btn-default" ng-click="edit=false;"> CANCEL </a>
+			</div>
+		</span>
 	</div>
 
 </section>
