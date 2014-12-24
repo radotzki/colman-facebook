@@ -1,0 +1,39 @@
+<section class="profile">
+
+	<img ng-src="{{vm.user.picture}}" class="img-circle">
+	<h1 class="name"> {{vm.user.name}} </h1>
+
+	<div class="row details">
+		<section class="col-lg-6">
+			<ul class="list-group">
+				<li class="list-group-item">
+					<dl class="dl-horizontal no-margin">
+						<dt>City</dt>
+						<dd>{{vm.user.city}}</dd>
+					</dl>
+				</li>
+				<li class="list-group-item">
+					<dl class="dl-horizontal no-margin">
+						<dt>Phone Number</dt>
+						<dd>{{vm.user.phone}}</dd>
+					</dl>
+				</li>
+				<li class="list-group-item">
+					<dl class="dl-horizontal no-margin">
+						<dt>Age</dt>
+						<dd>{{vm.user.age}}</dd>
+					</dl>
+				</li>
+			</ul>
+		</section>
+
+		<section class="col-lg-6">
+			<map center="{{vm.user.cityCordinateString || '0, 0' }}" zoom="12">
+				<info-window position="{{vm.user.cityCordinateString || '0, 0' }}" visible="true">
+				<span>{{vm.user.city}}</span>
+			</info-window>
+		</map>
+	</section>
+</div>
+
+</section>

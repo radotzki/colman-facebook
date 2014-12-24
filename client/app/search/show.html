@@ -1,0 +1,27 @@
+<section class="search">
+
+	<!-- search form -->
+	<form class="form-inline">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Name" ng-model="vm.query.name">
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Age" ng-model="vm.query.age">
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Phone" ng-model="vm.query.phone">
+		</div>
+		<button type="submit" class="btn btn-default" ng-click="vm.search()">Search</button>
+	</form>
+
+	<!-- search result -->
+	<div class="list-group people-search-result" ng-repeat="user in vm.result">
+		<a ui-sref="profile({id: user._id})" class="list-group-item">
+			<img ng-src="{{'assets/images/' + user.picture}}">
+			<h4 class="name">{{user.name}}</h4>
+		</a>
+	</div>
+
+	<h3 ng-show="vm.result.length==0" class="text-center"> No result </h3>
+
+</section>

@@ -1,0 +1,13 @@
+<section class="group">
+
+	<span ng-repeat="city in vm.usersByCities">
+		<h3 class="text-center"> {{city._id}} </h3>
+		<div class="list-group people-search-result">
+			<a ui-sref="profile({id: user.id})" class="list-group-item" ng-repeat="user in city.users">
+				<img ng-src="{{'assets/images/' + user.picture}}">
+				<h4 class="name">{{user.name}}</h4>
+			</a>
+		</div>
+	</span>
+
+</section>
