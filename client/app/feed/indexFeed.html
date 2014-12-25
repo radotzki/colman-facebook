@@ -14,13 +14,12 @@
 		<!-- Show post -->
 		<span ng-show="!edit">
 			<div class="panel-head">
-				<img ng-src="{{post.user.picture ? 'assets/images/' + post.user.picture : 'assets/images/' + vm.currentUser.picture}}" class="img-circle">
+				<img ng-src="{{'assets/images/' + post.user.picture}}" class="img-circle">
 				<div class="who-when">
-					<a ng-if="post.user.name" ui-sref="profile({ id: post.user._id })"> {{post.user.name}} </a>
-					<a ng-if="!post.user.name" ui-sref="profile({ id: 'me' })"> {{vm.currentUser.name}} </a>
+					<a ui-sref="profile({ id: post.user._id })"> {{post.user.name}} </a>
 					<p> {{post.created | date:'medium'}} </p>
 				</div>
-				<span ng-show="vm.currentUser._id==post.user._id || !post.user._id" ng-click="edit=true" class="glyphicon glyphicon-edit edit-post-icon" aria-hidden="true"></span>
+				<span ng-show="vm.currentUser._id==post.user._id" ng-click="edit=true" class="glyphicon glyphicon-edit edit-post-icon" aria-hidden="true"></span>
 			</div>
 			<div class="panel-body">
 				{{post.body}}

@@ -1,53 +1,23 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular.module('facebookApp', [
-  'app.core',
-  'app.feed',
-  'app.profile',
-  'app.group',
-  'app.search'
-])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
-    $urlRouterProvider
-      .otherwise('/feed');
+  angular.module('facebookApp', [
+        /*
+         * Everybody has access to these.
+         * We could place these under every feature area,
+         * but this is easier to maintain.
+         */ 
+         'app.core',
+         'app.auth',
+         'app.layout',
+         'app.socket',
+        /*
+         * Feature areas
+         */
+         'app.feed',
+         'app.profile',
+         'app.group',
+         'app.search'
+         ]);
 
-    $locationProvider.html5Mode(true);
-    $httpProvider.interceptors.push('authInterceptor');
-  })
-
-  .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
-    return {
-      // Add authorization token to headers
-      request: function (config) {
-        config.headers = config.headers || {};
-        if ($cookieStore.get('token')) {
-          config.headers.Authorization = 'Bearer ' + $cookieStore.get('token');
-        }
-        return config;
-      },
-
-      // Intercept 401s and redirect you to login
-      responseError: function(response) {
-        if(response.status === 401) {
-          $location.path('/login');
-          // remove any stale tokens
-          $cookieStore.remove('token');
-          return $q.reject(response);
-        }
-        else {
-          return $q.reject(response);
-        }
-      }
-    };
-  })
-
-  .run(function ($rootScope, $location, Auth) {
-    // Redirect to login if route requires auth and you're not logged in
-    $rootScope.$on('$stateChangeStart', function (event, next) {
-      Auth.isLoggedInAsync(function(loggedIn) {
-        if (next.authenticate && !loggedIn) {
-          $location.path('/login');
-        }
-      });
-    });
-  });
+})();

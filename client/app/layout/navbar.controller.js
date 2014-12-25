@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('facebookApp')
+angular.module('app.layout')
 .controller('NavbarCtrl', function ($scope, $location, Auth) {
   $scope.menu = [
   { 'title': 'Profile', 'link': '/profile/me' },

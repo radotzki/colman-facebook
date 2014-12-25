@@ -6,7 +6,7 @@
 	.controller('IndexFeed', IndexFeed);
 
 	/* @ngInject */
-	function IndexFeed(feedSvc, Auth, socket) {
+	function IndexFeed(feedSvc, Auth, socket, profileSvc) {
 		/*jshint validthis: true */
 		var vm = this;
 		vm.posts;
@@ -27,7 +27,13 @@
 		function getPosts () {
 			feedSvc.index().then(function() {
 				vm.posts = feedSvc.getResult();
-				socket.syncUpdates('post', vm.posts);
+				socket.syncUpdates('post', vm.posts, socketCallback);
+			})
+		}
+
+		function socketCallback (event, item, array) {
+			profileSvc.getUser(item.user).then(function(){
+				item.user = profileSvc.getResult();
 			})
 		}
 

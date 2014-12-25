@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('facebookApp')
-  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q) {
+angular.module('app.auth')
+  .factory('Auth', function Auth($location, $rootScope, $http, User, $localStorage, $q) {
     var currentUser = {};
-    if($cookieStore.get('token')) {
+    if($localStorage.token) {
       currentUser = User.get();
     }
 
@@ -25,7 +25,7 @@ angular.module('facebookApp')
           password: user.password
         }).
         success(function(data) {
-          $cookieStore.put('token', data.token);
+          $localStorage.token = data.token;
           currentUser = User.get();
           deferred.resolve(data);
           return cb();
@@ -45,7 +45,7 @@ angular.module('facebookApp')
        * @param  {Function}
        */
       logout: function() {
-        $cookieStore.remove('token');
+        delete $localStorage.token;
         currentUser = {};
       },
 
@@ -61,7 +61,7 @@ angular.module('facebookApp')
 
         return User.save(user,
           function(data) {
-            $cookieStore.put('token', data.token);
+            $localStorage.token = data.token;
             currentUser = User.get();
             return cb(user);
           },
@@ -140,7 +140,7 @@ angular.module('facebookApp')
        * Get auth token
        */
       getToken: function() {
-        return $cookieStore.get('token');
+        return $localStorage.token;
       }
     };
   });

@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <base href="/">
-  <title></title>
+  <title>Colman Facebook</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -20,8 +20,7 @@
   <!-- build:css({.tmp,client}) app/app.css -->
   <link rel="stylesheet" href="app/app.css">
   <!-- injector:css -->
-  <link rel="stylesheet" href="app/app.css">
-  <link rel="stylesheet" href="components/modal/modal.css">
+  <link rel="stylesheet" href="assets/app.css">
   <!-- endinjector -->
   <!-- endbuild -->
 </head>
@@ -31,7 +30,7 @@
       <![endif]-->
 
       <!-- Add your site or application content here -->
-      <div ng-include="'components/navbar/navbar.html'"></div>
+      <div ng-include="'app/layout/navbar.html'"></div>
       <section id="content" class="content">
         <div ui-view></div>
       </section>
@@ -62,6 +61,7 @@
     <script src="bower_components/angular-socket-io/socket.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
     <!-- endbower -->
     <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
@@ -73,7 +73,15 @@
     <script src="app/account/login/login.controller.js"></script>
     <script src="app/account/settings/settings.controller.js"></script>
     <script src="app/account/signup/signup.controller.js"></script>
+    <script src="app/blocks/auth/_auth.module.js"></script>
+    <script src="app/blocks/auth/auth.service.js"></script>
+    <script src="app/blocks/auth/user.service.js"></script>
+    <script src="app/blocks/mongoose-error/mongoose-error.directive.js"></script>
+    <script src="app/blocks/socket/_socket.module.js"></script>
+    <script src="app/blocks/socket/socket.service.js"></script>
     <script src="app/core/_core.module.js"></script>
+    <script src="app/core/authInterceptor.serive.js"></script>
+    <script src="app/core/config.js"></script>
     <script src="app/core/const.js"></script>
     <script src="app/core/mapHelper.js"></script>
     <script src="app/feed/_feed.module.js"></script>
@@ -84,6 +92,8 @@
     <script src="app/group/config.route.js"></script>
     <script src="app/group/group.service.js"></script>
     <script src="app/group/showGroup.js"></script>
+    <script src="app/layout/_layout.module.js"></script>
+    <script src="app/layout/navbar.controller.js"></script>
     <script src="app/profile/_profile.module.js"></script>
     <script src="app/profile/config.route.js"></script>
     <script src="app/profile/profile.service.js"></script>
@@ -92,12 +102,6 @@
     <script src="app/search/config.route.js"></script>
     <script src="app/search/search.js"></script>
     <script src="app/search/search.service.js"></script>
-    <script src="components/auth/auth.service.js"></script>
-    <script src="components/auth/user.service.js"></script>
-    <script src="components/modal/modal.service.js"></script>
-    <script src="components/mongoose-error/mongoose-error.directive.js"></script>
-    <script src="components/navbar/navbar.controller.js"></script>
-    <script src="components/socket/socket.service.js"></script>
     <!-- endinjector -->
     <!-- endbuild -->
   </body>

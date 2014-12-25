@@ -84,6 +84,7 @@
 
 function addPosts () {
   Post.find({}).remove(function() {
+
     User.findOne({name: 'Po Kador'}, '-salt -hashedPassword', function (err, user) {
       Post.create({
         body : 'Development Tools',
@@ -93,5 +94,26 @@ function addPosts () {
         user : user
       });
     });
+
+    User.findOne({name: 'Yuval Shalev'}, '-salt -hashedPassword', function (err, user) {
+      Post.create({
+        body : 'Hello everyone and welcome aborad!',
+        user : user
+      } , {
+        body : 'Loren ipsum',
+        user : user
+      });
+    });
+
+    User.findOne({name: 'Yasmin Flower'}, '-salt -hashedPassword', function (err, user) {
+      Post.create({
+        body : 'Some moments from the Loud live set',
+        user : user
+      } , {
+        body : 'Pope Francis leads global prayers for peace on Earth during midnight Mass at St. Peters Basilica at the Vatican',
+        user : user
+      });
+    });
+
   });  
 }
