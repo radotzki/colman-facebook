@@ -24,6 +24,25 @@ exports.show = function(req, res) {
   });
 };
 
+/**
+ * Search posts
+ */
+ exports.search = function(req, res) {
+  req.query.body = new RegExp(req.query.body, "i");
+  if (req.query.created) {
+    var startDate = new Date(req.query.created);
+    var toDate = new Date(startDate.getTime() + 24 * 60 * 60 * 1000);
+    req.query.created = { "$gte": startDate, "$lt": toDate };
+  }
+
+  Post.find(req.query)
+  .populate('user', 'name picture')
+  .exec(function (err, posts) {
+    if(err) { return handleError(res, err); }
+    return res.json(200, posts);
+  })
+};
+
 // Creates a new post in the DB.
 exports.create = function(req, res) {
   Post.create(req.body, function(err, post) {

@@ -1,4 +1,21 @@
 <section class="feed">
+
+	<!-- search form -->
+	<form class="form-inline search-post text-center">
+		<div class="form-group">
+			<input type="text" class="form-control input-sm" placeholder="Post" ng-model="vm.query.body">
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control input-sm" placeholder="Likes" ng-model="vm.query.likes">
+		</div>
+		<div class="form-group">
+			<input type="date" class="form-control input-sm" placeholder="Date" ng-model="vm.query.created">
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-default btn-sm" ng-click="vm.search()">Search</button>
+		</div>
+	</form>
+
 	<!-- Add post -->
 	<div class="panel panel-default fb-panel">
 		<div class="panel-body no-padding">
@@ -14,7 +31,7 @@
 		<!-- Show post -->
 		<span ng-show="!edit">
 			<div class="panel-head">
-				<img ng-src="{{'assets/images/' + post.user.picture}}" class="img-circle">
+				<img ng-src="{{post.user.picture ? 'assets/images/' + post.user.picture : ''}}" class="img-circle">
 				<div class="who-when">
 					<a ui-sref="profile({ id: post.user._id })"> {{post.user.name}} </a>
 					<p> {{post.created | date:'medium'}} </p>
@@ -23,6 +40,10 @@
 			</div>
 			<div class="panel-body">
 				{{post.body}}
+			</div>
+			<div class="panel-footer">
+				<span class="glyphicon glyphicon-thumbs-up like-btn" ng-click="vm.addLike(post)"></span>
+				<span> {{post.likes}} </span>
 			</div>
 		</span>
 

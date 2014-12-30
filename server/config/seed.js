@@ -88,30 +88,42 @@ function addPosts () {
     User.findOne({name: 'Po Kador'}, '-salt -hashedPassword', function (err, user) {
       Post.create({
         body : 'Development Tools',
-        user : user
+        user : user,
+        likes: 2,
+        created: new Date('October 16, 2014')
       } , {
         body : 'Second One',
-        user : user
+        user : user,
+        likes: 4,
+        created: new Date('Dec 27, 2014')
       });
     });
 
     User.findOne({name: 'Yuval Shalev'}, '-salt -hashedPassword', function (err, user) {
       Post.create({
         body : 'Hello everyone and welcome aborad!',
-        user : user
+        user : user,
+        likes: 25,
+        created: new Date('Nov 22, 2014')
       } , {
         body : 'Loren ipsum',
-        user : user
+        user : user,
+        likes: 0,
+        created: new Date('Nov 02, 2014')
       });
     });
 
     User.findOne({name: 'Yasmin Flower'}, '-salt -hashedPassword', function (err, user) {
       Post.create({
         body : 'Some moments from the Loud live set',
-        user : user
+        user : user,
+        likes: 98,
+        created: new Date('October 3, 2014')
       } , {
         body : 'Pope Francis leads global prayers for peace on Earth during midnight Mass at St. Peters Basilica at the Vatican',
-        user : user
+        user : user,
+        likes: 14,
+        created: new Date()
       });
     });
 

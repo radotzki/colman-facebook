@@ -23,6 +23,8 @@ var validationError = function(res, err) {
  * Search users
  */
  exports.search = function(req, res) {
+  req.query.name = new RegExp(req.query.name, "i");
+  req.query.phone = new RegExp(req.query.phone, "i");
   User.find(req.query ? req.query : {}, '-salt -hashedPassword', function (err, users) {
     if(err) return res.send(500, err);
     res.json(200, users);

@@ -13,6 +13,7 @@
 			create: create,
 			update: update,
 			remove: remove,
+			search: search,
 			getResult: getResult
 		};
 		return service;
@@ -38,6 +39,16 @@
 
 		function remove(post) {
 			return $http.delete('/api/posts/' + post._id).success(function(data) {
+				result = data;
+			});
+		}
+
+		function search(queryParam) {
+			return $http({
+				url: '/api/posts/search/', 
+				method: "GET",
+				params: queryParam
+			}).success(function(data) {
 				result = data;
 			});
 		}

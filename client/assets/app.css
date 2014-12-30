@@ -69,6 +69,10 @@
     margin: 30px auto;
 }
 
+.search-post {
+    margin-bottom: 20px;
+}
+
 .fb-panel {
     border: 0;
     box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
@@ -100,6 +104,14 @@
     float: right;
     margin-right: 20px;
     cursor: pointer;
+}
+
+.like-btn {
+    cursor: pointer;
+}
+
+.like-btn:hover {
+    color: blue;
 }
 
 .edit-post-icon:hover {
