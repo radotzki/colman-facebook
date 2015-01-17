@@ -1,35 +1,35 @@
 <section class="feed">
 
-	<!-- search form -->
-	<form class="form-inline search-post text-center">
-		<div class="form-group">
-			<input type="text" class="form-control input-sm" placeholder="Post" ng-model="vm.query.body">
-		</div>
-		<div class="form-group">
-			<input type="text" class="form-control input-sm" placeholder="Likes" ng-model="vm.query.likes">
-		</div>
-		<div class="form-group">
-			<input type="date" class="form-control input-sm" placeholder="Date" ng-model="vm.query.created">
-		</div>
-		<div class="form-group">
-			<button type="submit" class="btn btn-default btn-sm" ng-click="vm.search()">Search</button>
-		</div>
-	</form>
+    <!-- search form -->
+    <form class="form-inline search-post text-center">
+        <div class="form-group">
+            <input type="text" class="form-control input-sm" placeholder="Post" ng-model="vm.query.body">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control input-sm" placeholder="Likes" ng-model="vm.query.likes">
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control input-sm" placeholder="Date" ng-model="vm.query.created">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default btn-sm" ng-click="vm.search()">Search</button>
+        </div>
+    </form>
 
-	<!-- Add post -->
-	<div class="panel panel-default fb-panel">
-		<div class="panel-body no-padding">
-			<textarea class="form-control fb-textarea" rows="3" placeholder="What's on your mind?" ng-model="vm.newPost.body"></textarea>
-		</div>
-		<div class="panel-footer">
-			<a class="btn btn-xs btn-primary" ng-click="vm.create()"> POST </a>
-		</div>
-	</div>
+    <!-- Add post -->
+    <div class="panel panel-default fb-panel">
+        <div class="panel-body no-padding">
+            <textarea class="form-control fb-textarea" rows="3" placeholder="What's on your mind?" ng-model="vm.newPost.body"></textarea>
+        </div>
+        <div class="panel-footer">
+            <a class="btn btn-xs btn-primary" ng-click="vm.create()"> POST </a>
+        </div>
+    </div>
 
-	<!-- Index posts -->
-	<div class="panel panel-default fb-panel" ng-repeat="post in vm.posts | orderBy: '-created'">
-		<!-- Show post -->
-		<span ng-show="!edit">
+    <!-- Index posts -->
+    <div class="panel panel-default fb-panel" ng-repeat="post in vm.posts | orderBy: '-created'">
+        <!-- Show post -->
+        <span ng-show="!edit">
 			<div class="panel-head">
 				<img ng-src="{{post.user.picture ? 'assets/images/' + post.user.picture : ''}}" class="img-circle">
 				<div class="who-when">
@@ -37,18 +37,18 @@
 					<p> {{post.created | date:'medium'}} </p>
 				</div>
 				<span ng-show="vm.currentUser._id==post.user._id" ng-click="edit=true" class="glyphicon glyphicon-edit edit-post-icon" aria-hidden="true"></span>
-			</div>
-			<div class="panel-body">
-				{{post.body}}
-			</div>
-			<div class="panel-footer">
-				<span class="glyphicon glyphicon-thumbs-up like-btn" ng-click="vm.addLike(post)"></span>
-				<span> {{post.likes}} </span>
-			</div>
-		</span>
+    </div>
+    <div class="panel-body">
+        {{post.body}}
+    </div>
+    <div class="panel-footer">
+        <span class="glyphicon glyphicon-thumbs-up like-btn" ng-click="vm.addLike(post)"></span>
+        <span> {{post.likes}} </span>
+    </div>
+    </span>
 
-		<!-- edit post -->
-		<span ng-show="edit">
+    <!-- edit post -->
+    <span ng-show="edit">
 			<div class="panel-body no-padding">
 				<textarea class="form-control fb-textarea" rows="3" ng-init="editPost.body=post.body; editPost._id=post._id" ng-model="editPost.body"></textarea>
 			</div>
@@ -58,6 +58,6 @@
 				<a class="btn btn-xs btn-default" ng-click="edit=false;"> CANCEL </a>
 			</div>
 		</span>
-	</div>
+    </div>
 
 </section>

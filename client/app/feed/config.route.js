@@ -1,16 +1,16 @@
 (function() {
 
-	'use strict';
+    'use strict';
 
-	angular.module('app.feed')
-	.config(function ($stateProvider) {
-		$stateProvider
+    angular.module('app.feed')
+        .config(function($stateProvider) {
+            $stateProvider
 
-		.state('feed', {
-			url: '/feed',
-			templateUrl: 'app/feed/indexFeed.html',
-			controller: 'IndexFeed as vm'
-		});
+                .state('feed', {
+                url: '/feed',
+                templateUrl: 'app/feed/indexFeed.html',
+                controller: 'IndexFeed as vm'
+            });
 
-	});
+        });
 })();

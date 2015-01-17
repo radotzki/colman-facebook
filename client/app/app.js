@@ -1,23 +1,23 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  angular.module('facebookApp', [
+    angular.module('facebookApp', [
         /*
          * Everybody has access to these.
          * We could place these under every feature area,
          * but this is easier to maintain.
-         */ 
-         'app.core',
-         'app.auth',
-         'app.layout',
-         'app.socket',
+         */
+        'app.core',
+        'app.auth',
+        'app.layout',
+        'app.socket',
         /*
          * Feature areas
          */
-         'app.feed',
-         'app.profile',
-         'app.group',
-         'app.search'
-         ]);
+        'app.feed',
+        'app.profile',
+        'app.group',
+        'app.search'
+    ]);
 
 })();

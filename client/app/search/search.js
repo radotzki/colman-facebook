@@ -21,7 +21,7 @@
 
 			searchSvc.search(vm.query).then(function() {
 				vm.result = searchSvc.getResult();
-			})
+			});
 		}
 
 	}

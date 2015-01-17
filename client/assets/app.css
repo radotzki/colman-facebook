@@ -1,155 +1,141 @@
-
 /**
  * Bootstrap Fonts
  */
 
- @font-face {
+@font-face {
     font-family: 'Glyphicons Halflings';
     src: url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot');
-    src: url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-    url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'),
-    url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
-    url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+    src: url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
-
 /**
  *Font Awesome Fonts
  */
 
- @font-face {
+@font-face {
     font-family: 'FontAwesome';
     src: url('../bower_components/font-awesome/fonts/fontawesome-webfont.eot?v=4.1.0');
-    src: url('../bower_components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'),
-    url('../bower_components/font-awesome/fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'),
-    url('../bower_components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'),
-    url('../bower_components/font-awesome/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');
+    src: url('../bower_components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'), url('../bower_components/font-awesome/fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'), url('../bower_components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'), url('../bower_components/font-awesome/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
-
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
 }
-
 /**
  * App-wide Styles
  */
- html{background-color: #f7f7f7;position: relative;min-height: 100%;overflow-x:hidden;}
- body{background-color: transparent;color:#656565;font-size:13px;overflow-x: hidden;}
 
- .no-padding {
+html {
+    background-color: #f7f7f7;
+    position: relative;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+body {
+    background-color: transparent;
+    color: #656565;
+    font-size: 13px;
+    overflow-x: hidden;
+}
+.no-padding {
     padding: 0;
 }
-
 .no-margin {
     margin: 0;
 }
-
+.footer {
+    margin-top: 20px;
+    text-align: center;
+}
 /* NAV BAR */
+
 .navbar-color {
     background-color: #3b5998;
     margin-bottom: 0px;
 }
-
 .navbar-color .navbar-brand {
     color: #fff;
 }
-
 .navbar-color .navbar-nav > li > a {
-   color: #fff;   
+    color: #fff;
 }
-
-
 /* FEED */
+
 .feed {
-    width: 40%;
+    width: 50%;
     margin: 30px auto;
 }
-
 .search-post {
     margin-bottom: 20px;
 }
-
 .fb-panel {
     border: 0;
-    box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
 }
-
 .who-when {
     position: absolute;
     display: inline;
     padding-top: 15px;
     margin-left: 20px;
 }
-
 .panel-head {
     padding-top: 15px;
     padding-left: 20px;
 }
-
 .panel-head img {
     width: 60px;
     height: 60px;
 }
-
 .fb-textarea {
     border: 0;
     padding-top: 10px;
 }
-
 .edit-post-icon {
     float: right;
     margin-right: 20px;
     cursor: pointer;
 }
-
 .like-btn {
     cursor: pointer;
 }
-
 .like-btn:hover {
     color: blue;
 }
-
 .edit-post-icon:hover {
     color: #3b5998;
 }
-
 /* PROFILE */
+
 .profile {
     width: 80%;
     margin: 30px auto;
 }
-
 .profile img {
     width: 200px;
     height: 200px;
 }
-
 .profile .name {
     display: inline;
     margin-left: 40px;
 }
-
 .details {
     margin-top: 50px;
     font-size: 20px;
 }
-
 .details dt {
     width: auto;
 }
-
 /* GROUP */
+
 .group {
     width: 50%;
     margin: 30px auto;
 }
-
 /* SEARCH */
+
 .search {
     width: 50%;
     margin: 30px auto;
@@ -158,34 +144,28 @@
     width: 50%;
     margin: 30px auto;
 }
-
 .people-search-result .name {
     position: absolute;
     top: 35px;
     left: 120px;
 }
-
 .people-search-result img {
     height: 100px;
     width: 100px;
 }
-
 .people-search-result .list-group-item {
     padding: 0;
 }
-
 /* SIGNUP */
+
 .pick-picute h1 {
     margin-bottom: 20px;
 }
-
 .pick-picute img {
     width: 200px;
     height: 200px;
     margin: 10px 10px;
 }
-
 .pick-picute .active {
-    border: 2px solid blue;    
+    border: 2px solid blue;
 }
-

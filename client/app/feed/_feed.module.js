@@ -1,6 +1,6 @@
 (function() {
-	'use strict';
+    'use strict';
 
-	angular
-	.module('app.feed', []);
+    angular
+        .module('app.feed', []);
 })();

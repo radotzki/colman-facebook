@@ -5,11 +5,7 @@
         /*
          * Angular modules
          */
-        'ngCookies', 'ngResource', 'ngSanitize',
-        /*
-         * Our reusable cross app code modules
-         */
-         
+        'ngCookies', 'ngResource', 'ngSanitize', 
         /*
          * 3rd Party modules
          */

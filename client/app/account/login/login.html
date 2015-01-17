@@ -1,48 +1,47 @@
 <div class="container">
-  <div class="row">
+    <div class="row">
 
-    <div class="col-lg-6">
+        <div class="col-lg-6">
 
-      <h1>Login</h1>
+            <h1>Login</h1>
 
-      <form class="form" name="form" ng-submit="login(form)" novalidate>
+            <form class="form" name="form" ng-submit="login(form)" novalidate>
 
-        <div class="form-group">
-          <label>Email</label>
+                <div class="form-group">
+                    <label>Email</label>
 
-          <input type="email" name="email" class="form-control" ng-model="user.email" required>
+                    <input type="email" name="email" class="form-control" ng-model="user.email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+
+                    <input type="password" name="password" class="form-control" ng-model="user.password" required>
+                </div>
+
+                <div class="form-group has-error">
+                    <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && submitted">
+                        Please enter your email and password.
+                    </p>
+                    <p class="help-block" ng-show="form.email.$error.email && submitted">
+                        Please enter a valid email.
+                    </p>
+
+                    <p class="help-block">{{ errors.other }}</p>
+                </div>
+
+                <div>
+                    <button class="btn btn-default btn-lg " type="submit">
+                        Login
+                    </button>
+                </div>
+
+            </form>
         </div>
 
-        <div class="form-group">
-          <label>Password</label>
-
-          <input type="password" name="password" class="form-control" ng-model="user.password" required>
+        <div class="col-lg-4" style="margin-top:40px">
+            <embed width="320" height="180" src="http://www.youtube.com/v/Alyj64_368g">
         </div>
 
-        <div class="form-group has-error">
-          <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && submitted">
-           Please enter your email and password.
-         </p>
-         <p class="help-block" ng-show="form.email.$error.email && submitted">
-           Please enter a valid email.
-         </p>
-
-         <p class="help-block">{{ errors.other }}</p>
-       </div>
-
-       <div>
-        <button class="btn btn-default btn-lg " type="submit">
-          Login
-        </button>
-      </div>
-
-    </form>
-  </div>
-
-  <div class="col-lg-4" style="margin-top:40px">
-    <embed width="640" height="360" src="http://www.youtube.com/v/Alyj64_368g">
-  </div>
-
-  </div>
-  <hr>
+    </div>
 </div>
